@@ -5,10 +5,22 @@ package enum_demo;
 
 import java.io.Serializable;
 
-/**
+/** ref::: https://crunchify.com/why-and-for-what-should-i-use-enum-java-enum-examples/
+ * 1.	enum is Type safe (http://www.securingjava.com/chapter-two/chapter-two-10.html)
+ * 2.	All enums implicitly extend java.lang.Enum. Since Java does not support multiple inheritance, an enum cannot extend anything else.
+ * 3.	The java enum constants are static and final implicitly.
+ * 4.   You can specify values of enum constants at the creation time. MyEnum.values() returns an array of MyEnum’s values.
+ * 5. 	Enum can be safely compare using: Switch-Case Statement , == Operator ,.equals() method.
+ * 6.	You can not create instance of enums by using new operator in Java because constructor of Enum in Java can only be private and Enums constants can only be created inside Enums itself.
+ * 7. 	An enum can be declared outside or inside a class, but NOT in a method.
+ * 8.	An enum declared outside a class must NOT be marked static, final , abstract, protected , or private.
+ * 
+ * 11.	The semicolon at the end of an enum declaration is optional.
+ * 12.	enum constructors can NEVER be invoked directly in code. They are always called automatically when an enum is initialized.
+ * 
+ * 
  * enum cann't be private ,protected.
- * The java enum constants are static and final implicitly.
- * Constructor of enum type is private. 
+ * 
  * If you don't declare private compiler internally creates private constructor.
  * Yes, ofcourse! we can have abstract methods and
  *  can provide the implementation of these methods.
@@ -29,7 +41,7 @@ An enumerated type has a finite number of named values
 *
 *
 * The type defined by this declaration is actually a class. The class has exactly four
-instances�it is not possible to construct new objects.Therefore, 
+instances—it is not possible to construct new objects.Therefore, 
 you never need to use equals for values of enumerated types. Simply use == to
 compare them.
 You can, if you like, add constructors, methods, and fields to an enumerated type. Of
@@ -39,7 +51,7 @@ course, the constructors are only invoked when the enumerated constants are cons
 public enum Size implements EnumInterface{
 
 	//SMALL,MEDIUM,,EXTRA_LARGE
-	SMALL("S") {
+	SMALL("S") {// 9.	enum constants can send arguments to the enum constructor, using the syntax BIG(8), where the int literal 8 is passed to the enum constructor.
 		@Override
 		public int f() {
 			return 1;
@@ -77,10 +89,10 @@ public enum Size implements EnumInterface{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	//Declaring Constructors, Methods, and Variables in an enum
 	
+	//Declaring Constructors, Methods, and Variables in an enum
 	private String abbv;
-	private Size(String abbv){
+	private Size(String abbv){// 10.	enum constructors can have arguments, and can be overloaded.
 		this.abbv=abbv;
 	}
 
