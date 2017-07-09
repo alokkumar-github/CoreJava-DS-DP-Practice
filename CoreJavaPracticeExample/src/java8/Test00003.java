@@ -16,5 +16,4 @@ public class Test00003 {
 
 		items.forEach((k,v)->System.out.println("Item : " + k + " Count : " + v));
 	}
-
 }

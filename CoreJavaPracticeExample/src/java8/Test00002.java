@@ -1,4 +1,4 @@
-package practiceExamples;
+package java8;
 
 public class Test00002 {
 	public void test() {
@@ -20,5 +20,4 @@ public class Test00002 {
 		Test00002 alpha = new Test00002();
 		alpha.test();
 	}
-
 }
