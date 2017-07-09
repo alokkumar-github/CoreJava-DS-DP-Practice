@@ -39,6 +39,14 @@ public class HashMapDemo {
 			String str=(String)itr.next();
 			System.out.println(str);
 		}
+		/*
+		 * public boolean add(E e) {
+    	return map.put(e, PRESENT)==null;
+		}Now if you closely examine the  return map.put(e, PRESENT)==null; of add(e, E) method. There can be two possibilities :
+		 * if map.put(k,v) returns null ,then map.put(e, PRESENT)==null; will return true and element will be added.
+		if map.put(k,v) returns old value for the key ,then map.put(e, PRESENT)==null; will return false and element will not be added.
+		 1. null, if the key is unique and added to the map
+ 		2. Old value of the key, if key is duplicate*/
 	}
 
 	public static void concurentModificationException(){
@@ -78,8 +86,8 @@ public class HashMapDemo {
 	
 		 //hashSetTest();
 		 //hashSetCoustomKey();
-		// hashMapT();
-		 hashMapCoustomKey();
+		 hashMapT();
+		 //hashMapCoustomKey();
 		// treemap();
 		//treemapCustomKey();
 		//terreMapCusomkeyByComparator();
@@ -241,7 +249,7 @@ public class HashMapDemo {
 
 	}
 
-	private static void hashMapT() {
+	private static void hashMapT() { // unorder, 
 		HashMap<String, Integer> hm = new HashMap<String, Integer>();
 		Integer m1 = hm.put("a1", 21);
 		Integer m2 = hm.put(null, 11);
@@ -272,7 +280,7 @@ public class HashMapDemo {
 		      
 		   // check returned previous value
 		   System.out.println("newvalue\t"+newvalue+"\tReturned previous value: "+ prevvalue);
-		      
+		   newmap.put(4,"is great");
 		   System.out.println("Map value after change: "+ newmap);
 	}
 
