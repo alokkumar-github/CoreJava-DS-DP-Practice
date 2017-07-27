@@ -1,0 +1,30 @@
+(1) reverse a String.					(DONE)			
+(2) reverse each word of a String.		(DONE)
+(3) Duplicate Character in String.		(DONE)
+(4) permutations of a String.			(DONE)
+(5) Factorial program					(DONE)
+(6) Fibonacci series					(DONE)
+(7) Printing Table of numbers (horizontal & Vertical).	(DONE)
+(8) Prime no.				
+(9) Palindrome no.	
+(10) Armstrong No.	
+(11) Bubble sort	
+(12) Selection sort	
+(13) Insertion sort
+(14) Read a sentence and display occurance of each unique word.
+(15) CountWordFromFile
+(16) Random no.							(DONE)
+(17) String Comparison					(DONE)
+(18) Max element of Array				(DONE)
+(19) Min element of Array				(DONE)
+(20) Count number of Words in the String(DONE)
+(21) NumberToWord (one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine)(DONE)
+(22) NumberToWord (one four three)
+(23) Find the First non repeated character in the String
+(24) Remove Specific Characters from the String (OR) remove All spaces.		(DONE)
+()
+()
+()
+()
+()
+()
