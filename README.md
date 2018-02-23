@@ -4,3 +4,6 @@ http://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-
 
 
 https://github.com/MaximAbramchuck/awesome-interview-questions
+
+https://github.com/eugenp/tutorials/tree/master/core-java-8
+
