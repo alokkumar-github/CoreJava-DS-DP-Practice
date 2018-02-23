@@ -7,3 +7,5 @@ https://github.com/MaximAbramchuck/awesome-interview-questions
 
 https://github.com/eugenp/tutorials/tree/master/core-java-8
 
+https://github.com/eugenp/tutorials/tree/master/core-java-8
+
