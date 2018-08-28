@@ -8,11 +8,16 @@ import java.util.function.Predicate;
 
 //https://www.youtube.com/playlist?list=PLqq-6Pq4lTTa9YGfyhyW2CqdtW9RtY-I3
 /*
+ * Factor involve the changes in java8. 1 java mostly work with single core, to leverage multicore processor; in multithreaded & concurrency api
+ * 										2.increase in demand of amount of data to be process ; parallel processing ; using stream API and functional programming.
+ * 
  * why Lambdas--- Enable functional programming , readable maintainable and concise code,
- * 					 enable support for parallel processing, easy to use Apis and libraries.
+ * 					 enable support for parallel processing, easy to use ApIs and libraries.
  * Lambdas Express ::: just a function which don't belong to class(i.e which exist in isolation)
  * 					 and this function(block of codes) is treated as value. 
- * ex. ablokcode={ ..........}
+ * Lambda expression is perfect for working out functional programming in Java.
+ * ex. ablockcode={ ..........}
+ * Syntax: (parameters) -> expression or (parameters) -> { statements; }
  * 
  * 3. type inference
  * 
@@ -22,11 +27,55 @@ import java.util.function.Predicate;
  * 
  * 6. This reference in lambdas
  * 
- * 7. MethodReference
+ * 7. MethodReference: http://www.baeldung.com/java-8-new-features
  * 
- * 8. Closures
+ * 8. Closures:if you are able to pass the function from one place to other as value is called Closures in functional programming.
  * 
- * 9. 
+ * 9. Function Interface: Any Interface with single abstract method is called Functional Interface
+ * 		java 8 provide support for lambda expressions only with functional interfaces.
+ * 
+ * 10. Functional Programming in object oriented language :: Function are at the center of functional programming.
+	 * Function refer to mathematical function(ie. they don't change anything , just simply map input to output ). ex f(x)=x*2;
+		using this function as g(x,y)=f(x)+f(y)
+							g(2,3)	= f(2)+f(3) = (2*2)+(3*2) =10 
+	Input for fuction should be immutable.function should not involve in modifying outside of its scope.
+	so functional programming should focus only on input and output.
+ *   Functions are similar to methods in Java. But they differ in certain properties/principle.
+	1. Functions should avoid mutable states (That means they should not assign or update any state of an object.)
+	2. Functions are stateless.
+	
+	This is a stateless object:
+	class Stateless {
+	    void test() {
+	        System.out.println("Test!");
+	    }
+	}
+	This is also a stateless object:
+	class Stateless {
+	    //No static modifier because we're talking about the object itself
+	    final String TEST = "Test!";
+	
+	    void test() {
+	        System.out.println(TEST);
+	    }
+	}
+	This object has state, so it is not stateless. However, it has its state set only once, and it doesn't change later,
+	this type of objects is called immutable:
+	class Immutable {
+	    final String testString;
+	
+	    Immutable(String testString) {
+	        this.testString = testString;
+	    }
+	
+	    void test() {
+	        System.out.println(testString);
+	    }
+	}
+	
+	11. optional<> : to handle run time exception.ex NullPointerException (NPE). 
+	12. Stream API.
+	
  * 
  */
 public class LambdasTest {
@@ -48,6 +97,17 @@ public class LambdasTest {
 			if(a==b) return 0;
 			return a+b;
 		};
+		
+		//TaskComparator tc = (a, b) -> { return a > b;};
+		TaskComparator tc = new TaskComparator() {
+			@Override
+			public boolean compareTask(int a, int b) {
+				return a > b;
+			}
+		};
+		
+		boolean task=tc.compareTask(5, 2);
+		System.out.println("task:: "+task);
 
 	}// below are replaced by lambdas and assign the type as above.
 	// signture of lambdas should match with 
@@ -65,6 +125,8 @@ public class LambdasTest {
 		if(a==b) return 0;
 		return a+b;
 	}*/
+	
+	 
 }	
 
 @FunctionalInterface
@@ -74,6 +136,11 @@ public class LambdasTest {
  interface Funtion1TypeInterface {
 	public void funtion1Type();
 }
+ 
+ @FunctionalInterface
+ interface TaskComparator{
+	 public boolean compareTask(int a, int b);
+ }
  
 // some more example.........................
 class Unit1ExerciseSolutionJava8 {
