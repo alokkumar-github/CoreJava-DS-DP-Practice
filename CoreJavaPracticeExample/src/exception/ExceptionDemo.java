@@ -21,12 +21,12 @@ public class ExceptionDemo {
 	public static void main(String[] args) throws Exception {
 
 		ExceptionDemo ed = new ExceptionDemo();
-		System.out.println(ed.exp());
-		//ed.exp1();
-		// ed.exp2();
-		 //ed.exp3();
-		//ed.exp4();
-		//ed.method(new ArithmeticException());
+		// System.out.println(ed.exp());
+		// ed.exp1();
+		 // ed.exp2();
+		// ed.exp3();
+		// ed.exp4();
+		// ed.method(new ArithmeticException());
 		//ed.method(new IOException());
 	}
 
@@ -40,7 +40,7 @@ public class ExceptionDemo {
 			System.out.println("try");
 			// throw new IOException();
 			// throw new IndexOutOfBoundsException();
-			throw new ArrayIndexOutOfBoundsException();
+			 throw new ArrayIndexOutOfBoundsException();
 			// System.out.println("try"); // unreachable code; and unreachable
 			// code gives compile time exception.
 			// return 1; // unrechable code.
@@ -49,6 +49,7 @@ public class ExceptionDemo {
 			return 21;
 		} */catch (IndexOutOfBoundsException e) {
 			System.out.println("catch0");
+			return 20;
 		} catch (RuntimeException e) {
 			System.out.println("catch1");
 			return 22;
@@ -62,6 +63,7 @@ public class ExceptionDemo {
 			System.out.println("finally");
 			//return 3; // this return is commented appropriate catch retrun value print
 		}
+		//System.out.println("finish"); // unrechable code if finally return.
 		return 3;// concept: if finally has return give compilation. 
 		// if finnaly block uncommented return the catch one.
 	}
@@ -218,9 +220,12 @@ terminated
 		}
 	}
 
-	/*
+	/*an explanation as to what it means to pass an exception up the calling chain by declaring the exception
+	 *  in my methods throws clause and why I would want to do that.
+	 *  When an exception occurs in the code, it interrupts the current method and gives the control back to the previous method on the stack trace. If this method can handle the exception (with a catch), the catch will be executed, the exception will stop bubbling up. If not, the exception will bubble up the stack trace. Ultimately, if it arrives in the main and the main cannot handle it, the program will stop with an error.
+	 *  
 	 * Give complie time error bcz By default, 
-	 * Checked Exceptions are not forwarded in calling chain
+	 * Checked Exceptions are not forwarded in calling chain(propagated)
 	 * in order to propagate forwaded in calling chain, ,thorws the excetion ex. void m()thorws IOException
 	 * void m(){ 
 	 *  throw new java.io.IOException("device error");//checked exception 
@@ -235,16 +240,23 @@ terminated
 	/*This will not give compilation error since By default, 
 	 * Checked Exceptions are  forwarded in calling chain. so not need to provide throws
 	 * 	void m(){  
-		    int data=50/0;  
+		    int data=50/0;  // unchecked exception occurred
+        // exception propagated to n()
 		  }  
 		  void n(){  
-		    m();  
+		    m();  // exception propagated to p()
 		  }  
 		  void p(){  
 		   try{  
-		    n();  
+		    n();  // exception handled
 		   }catch(Exception e){System.out.println("exception handled");}  
-		  }  
+		  } 
+		  public static void main(String args[])
+		    {
+		        Simple obj = new Simple();
+		        obj.p();
+		        System.out.println("normal flow...");
+		    } 
 	 */
 
 	/*
