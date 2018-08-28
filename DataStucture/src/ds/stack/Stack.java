@@ -14,6 +14,9 @@ Efficiency of Stacks
 In the stack, the elements can be push or pop one at a time in constant O(1) time. That is, the time is not dependent on how many items are in the stack and is therefore very quick. No comparisons or moves are necessary.
 
  */
+/*
+ * using arrayList
+ */
 public class Stack {
 
 	private int[] stackArray;
