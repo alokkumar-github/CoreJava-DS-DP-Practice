@@ -8,6 +8,11 @@ import java.util.Comparator;
 /*
  * http://docs.oracle.com/javase/specs/
  * 
+ * Colletion of similar kind of data in contiguous memory allocation.
+ * Advantages of using arrays:
+ * 	Arrays allow random access of elements. This makes accessing elements by position faster.
+	Arrays have better cache locality that can make a pretty big difference in performance.
+ * 
  * Array is object in java whose class is not exist.
  * Arrays can be one dimensional or multi-dimensional. 
  * Arrays override all the object class method except clone
@@ -39,7 +44,7 @@ public class ArrayDemo {
 	    //Example eg2 = new Example(eg1.foo, eg1.bar);
 	   
 	    Example eg2 = new Example(eg1.foo, Arrays.copyOf(eg1.bar,2));
-	    System.out.println(eg2);
+	    System.out.println("eg2:: "+eg2);
 	    
 	    // arrray declaration and initiaiztion
 	    
@@ -142,6 +147,43 @@ public class ArrayDemo {
         
         Arrays.sort(dogArray, new DogWeightComparator());
         printDogs(dogArray);
+        
+        // cloning array..  https://www.geeksforgeeks.org/arrays-in-java/
+       // When you clone a single dimensional array, such as Object[], a "deep copy" 
+        // is performed with the new array containing copies of the original array's elements as opposed to references.
+        int intArray1[] = {1,2,3};
+        
+        int cloneArray[] = intArray1.clone();
+        
+         
+        // will print false as deep copy is created
+        // for one-dimensional array
+        System.out.println(intArray1 == cloneArray);
+        System.out.println(intArray1[0] == cloneArray[0]);
+        System.out.println(intArray1.equals(cloneArray));
+        System.out.println(new Integer(intArray1[0]).equals(cloneArray[0]));
+        
+        // A clone of a multidimensional array (like Object[][]) is a "shallow copy" 
+        // however, which is to say that it creates only a single new array with each element array a reference to an original element array
+        // but subarrays are shared. https://www.geeksforgeeks.org/arrays-in-java/
+        int intArray2[][] = {{1,2,3},{4,5}};
+        
+        int cloneArray2[][] = intArray2.clone();
+         
+        // will print false
+        System.out.println("multi D...................");
+        System.out.println(intArray2 == cloneArray2);
+        System.out.println(intArray2.equals(cloneArray2));
+         
+        // will print true as shallow copy is created
+        // i.e. sub-arrays are shared
+        System.out.println("intArray2[0]::: "+intArray2[0]+" cloneArray2[0]:: "+cloneArray2[0]);
+        System.out.println(intArray2[0] == cloneArray2[0]);
+        System.out.println(intArray2[1] == cloneArray2[1]);
+        
+        System.out.println(intArray2[0] .equals(cloneArray2[0]));
+        
+        System.out.println(intArray2[1][0] == cloneArray2[1][0]);
         
 	}
 	public static void printDogs(Dog[] dogs){

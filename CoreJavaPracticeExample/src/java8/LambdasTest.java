@@ -15,7 +15,7 @@ import java.util.function.Predicate;
  * 					 enable support for parallel processing, easy to use ApIs and libraries.
  * Lambdas Express ::: just a function which don't belong to class(i.e which exist in isolation)
  * 					 and this function(block of codes) is treated as value. 
- * Lambda expression is perfect for working out functional programming in Java.
+ * Lambda expression is perfect for working out functional programming in Java.Lambda expressions basically express instances of functional interfaces.
  * ex. ablockcode={ ..........}
  * Syntax: (parameters) -> expression or (parameters) -> { statements; }
  * 
@@ -31,7 +31,9 @@ import java.util.function.Predicate;
  * 
  * 8. Closures:if you are able to pass the function from one place to other as value is called Closures in functional programming.
  * 
- * 9. Function Interface: Any Interface with single abstract method is called Functional Interface
+ * 9. Function Interface: Any Interface with single abstract method but it can have multiple default methods is called Functional Interface.
+ 		@FunctionalInterface annotation is used to ensure an interface can’t have more than one abstract method. The use of this annotation is optional.
+		The java.util.function package contains many builtin functional interfaces in Java 8.
  * 		java 8 provide support for lambda expressions only with functional interfaces.
  * 
  * 10. Functional Programming in object oriented language :: Function are at the center of functional programming.

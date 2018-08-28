@@ -1,4 +1,4 @@
-package com.test.stream;
+package java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,13 +10,25 @@ import java.util.stream.Stream;
 public class StreamDemo {
 	public static void main(String[] args) {
 		joiningDemo();
+		mapDemo();
+		summaryStatisticsDemo();
 	}
 
 	public static void mapDemo() {
 		List<String> collection = Arrays.asList("My", "name", "is", "John", "Doe");
 		System.err.println(collection.stream().map(String::toUpperCase).collect(Collectors.toList()));
 	}
+/*
+ * Both map and flatMap can be applied to a Stream<T> and they both return a Stream<R>. 
+ * The difference is that the map operation produces one output value for each input value, 
+ * whereas the flatMap operation produces an arbitrary number (zero or more) values for each input value.
+ * 
+ * Stream.flatMap, as it can be guessed by its name, is the combination of a map and a flat operation.
+ *  That means that you first apply a function to your elements, and then flatten it. Stream.map only applies a function to the stream without flattening the stream.
 
+To understand what flattening a stream consists in, consider a structure like [ [1,2,3],[4,5,6],[7,8,9] ] 
+which has "two levels". Flattening this means transforming it in a "one level" structure : [ 1,2,3,4,5,6,7,8,9 ].
+ */
 	public static void flatMapDemo() {
 		List<List<String>> collection = Arrays.asList(Arrays.asList("My", "name", "is"), Arrays.asList("John", "Doe"));
 		System.err.println(collection.stream().flatMap(List::stream).collect(Collectors.toList()));

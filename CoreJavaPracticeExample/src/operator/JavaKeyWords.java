@@ -70,7 +70,7 @@ public class JavaKeyWords {
 		System.out.println(b=(byte)i); // here int value is larger then range of byte.
 										// it will reduce to modules . ex. 258%256 = 2
 		//System.out.println(i%256);
-		System.out.println(i=(int)d);
+		System.out.println(i=(int)d); // when floating value assigned to an integer value ; trancation of decimal part.
 		System.out.println(d1);
 		System.out.println(f);
 		

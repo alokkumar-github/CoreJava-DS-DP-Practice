@@ -34,6 +34,11 @@ package operator;
 public class IncrementDecrement {
 
 	public static void main(String[] args) {
+		
+		int x1=10;
+		int y= x1++ + --x1 - x1++ + x1-- + ++x1 - --x1 + x1++ + ++x1;
+		System.out.println("y:: "+y+" x1:: "+x1);
+		
 		int i=6,j=8,k=7;
 		i=j++ + ++i + + + + k -- -i;
 		System.out.println(i);

@@ -61,6 +61,8 @@ Zero fill means Unsigned RightShift
  */
 public class Right_LeftSift {
 	public static void main(String[] args) {
+		System.out.println("max_bigGap_length:::" + getGap(100100001));
+		System.out.println("Binary:::" +getBinaryFromDemical(12));
 		double d=42.789;
 		System.out.println(d%10);//O/P:	2.789
 		System.out.println(d%2);
@@ -116,5 +118,37 @@ public class Right_LeftSift {
 		
 		System.out.println(12^12);
 	}
-
+	public static int getGap(int N) {
+		//N is binary 
+		// or convert binary first
+		int max = 0;
+		int count = -1;
+		int r = 0;
+	 
+		while (N > 0) {
+			// get right most bit & shift right
+			r = N & 1;
+			N = N >> 1;
+	 
+			if (0 == r && count >= 0) {
+				count++;
+			}
+	 
+			if (1 == r) {
+				max = count > max ? count : max;
+				count = 0;
+			}
+		}
+	 
+		return max;
+	}
+	public static String getBinaryFromDemical(int n) {
+		String x ="";
+		while(n>0) {
+			int a = n%2;
+			x = a + x;
+			n =  n>>1; // n/2;
+		}
+		return x;
+	}
 }

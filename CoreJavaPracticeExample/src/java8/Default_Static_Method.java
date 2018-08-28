@@ -12,7 +12,7 @@ interface D {
 	}
 }
 
-public class Default_Static_Method implements C, D {
+public class Default_Static_Method implements C, D, interfaceA, interfaceB  {
 
 	@Override
 	public void m1() {
@@ -23,7 +23,16 @@ public class Default_Static_Method implements C, D {
 		Default_Static_Method obj = new Default_Static_Method();
 		obj.m1();
 		new Lab3().m1();
-		;
+		
+		//////////////////////////////
+		//sum(); // illegal
+		// new Lab5().sum(); // illegal
+		// Lab5.sum(); // illegal
+		interfaceA.sum();
+
+		// interfaceB.sub(); // illegal
+		// Lab5.sub(); // illegal
+		new Lab5().sub();
 	}
 
 }
@@ -87,11 +96,22 @@ interface interfaceA {
 	public static void sum() {
 		System.out.println("static method");
 	}
+	
+	static void sum1() { // by default ; only - public.
+		System.out.println("static method-2");
+	}
 }
 
 interface interfaceB {
 	public default void sub() {
 		System.out.println("default method");
+	}
+	public default void sub1() {
+		System.out.println("default method-2");
+	}
+	default int sub11() { // by defuaul ; only - public; 
+		System.out.println("default method-3");
+		return 0;
 	}
 }
 

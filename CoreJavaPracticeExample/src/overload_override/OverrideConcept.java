@@ -42,7 +42,7 @@ This rule can be understood as follows:
 *Constructors cannot be overridden.
 *
 * A static method in a subclass may hide another static one in a superclass, 
-* and that’s called hiding.
+* and that’s called hiding.-method hiding
 * 
 
 * Abstract methods must be overridden by the first concrete (non-abstract) subclass.
@@ -104,7 +104,7 @@ public class OverrideConcept extends Animal{
 	}
 	
 	 int i=8; // only method can be overrided not variable.
-	 public static void display() {
+	 public static void display() { // here we are re-declaring; not overriding 
 	        System.out.println("Static or class method from OverrideConcept");
 	    }
 	 

@@ -73,13 +73,18 @@ public class InheritenceAndTypeCast {
 		
 		X x=new C();
 		x.funx();//
+		
 	}
 
 }
 interface X{
 	void funx();
 }
-class A implements X{
+abstract interface XX{
+	void funx();
+	String n= "aaa";
+}
+class A implements X,XX{
 	int i;
 	void functionA(int i){
 		System.out.println("inside class A");
@@ -146,7 +151,7 @@ class F1 implements E,E1,F{
 	@Override
 	public void ff() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("inside F1 class - ff()");
 	}
 
 	@Override
@@ -154,8 +159,66 @@ class F1 implements E,E1,F{
 		// TODO Auto-generated method stub
 		
 	}
+	public final void e1() {
+		System.out.println("inside F1 class - final  e1()");
+	}
 	
 }
+
+
+class Run extends AdsClass{
+	//Run() throws Exception {} // contructor can also declared using thorws clause
+	int y;
+	public static void main(String[] args) {
+		E a = new F1();
+		 AdsClass a1 = new Run(); 
+		 a1.f1();
+		 new Run().f222();
+		 new Run().e1();// we can invoke final method from inherited subclass. but not override
+		 new Run().f222(1,false);
+	}
+	@Override
+	protected void f22() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	public void ff() throws RuntimeException {//this is override; can throws any unchecked exception, irrespective of super class overriden method 
+		System.out.println("inside Run Class override - ff()");
+	}
+	protected void f222(){
+		System.out.println("inside Run Class - f222()");
+		ff();// or this.ff();
+		super.ff();
+	}
+	protected void f222(int i,boolean b){ // order of parametres matter
+		System.out.println("inside Run Class - f222(int i,boolean b)");
+	}
+}
+
+//abstract class extends only one class(that would be either Concrete or abstract class
+// abstract class can have main method ( the entry point to JVM to begin execution)
+abstract class AdsClass extends F1 {
+	public static void main(String[] args) {
+		E a = new F1();
+		// AdsClass a1 = new F1(); // need to typecast
+		
+	}
+	// we can define final for concrete method of abstract class
+	public final void f1() {
+		System.out.println("inside final - f1()");
+	}
+	 void f222(int i,boolean b){
+		System.out.println("inside AdsClass - f222(int i,boolean b)");
+	}
+	static int i; int j; final int y=9;
+	
+	protected abstract void f22() throws Exception;// modifier like final , static ,private not allowed to abstract method or class - result compilaton error
+	AdsClass(){}
+	private AdsClass(int i){} // can declare default , parameterize constructor. private modifier also
+	// static field , concrete  methods allowed.overloading , overriding also
+	// abstract class can be defined either only abstract method(s) or concrete method(s)
+}
+
 /*
  * 
  * we can classify typecasting into 4 categories.
