@@ -73,11 +73,13 @@ public class InheritenceAndTypeCast {
 		
 		X x=new C();
 		x.funx();//
-		
+		System.out.println(X.j);
 	}
 
 }
 interface X{
+	// by default static final.
+	public static final int j = 10;
 	void funx();
 }
 abstract interface XX{
