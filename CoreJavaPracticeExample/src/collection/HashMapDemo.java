@@ -48,6 +48,28 @@ public class HashMapDemo {
 		 1. null, if the key is unique and added to the map
  		2. Old value of the key, if key is duplicate*/
 	}
+	
+	public static void whystringbuffernotoverrideequalhascode() {
+		String str1 = new String("sunil");
+		String str2 = new String("sunil");
+
+		HashMap hm = new HashMap();
+		hm.put(str1,"hello");
+		hm.put(str2,"bye");	
+		// hm = { sunil=bye }
+		
+		System.out.println("stringbuilder::: "+hm);
+		
+		StringBuilder sb1 = new StringBuilder("sunil");
+		StringBuilder sb2 = new StringBuilder("sunil");
+
+		HashMap hm1 = new HashMap();
+		hm1.put(sb1,"hello");//sb1 and sb2 will return different HashCode 
+		hm1.put(sb2,"bye");// StringBuffer/StringBuilder does not override hashCode/equals methods
+		
+		System.out.println("stringbuilder::: "+hm1);
+		
+	}
 
 	public static void concurentModificationException(){
 		//concept 6: we concurrent modificationException 
@@ -86,13 +108,14 @@ public class HashMapDemo {
 	
 		 //hashSetTest();
 		 //hashSetCoustomKey();
-		 hashMapT();
+		 //hashMapT();
 		 //hashMapCoustomKey();
 		// treemap();
-		//treemapCustomKey();
+		// treemapCustomKey();
 		//terreMapCusomkeyByComparator();
 		//concurentModificationException();
 		//sortByValues();
+		whystringbuffernotoverrideequalhascode();
 	}
 	private static void terreMapCusomkeyByComparator() {
 		// Concept 4:By using name comparator (String comparison);
@@ -370,7 +393,7 @@ class Employee implements Comparable<Employee> {
 		this.salary = salary;
 	}
 
-	/*@Override
+/*	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

@@ -351,9 +351,19 @@ terminated
  *  
  */
 class InvalidAgeException extends Exception{  
-	 InvalidAgeException(String s){  
-	  super(s);  
+	public InvalidAgeException(String s){  
+	  super(s);  // why we call super in own created custom exception.
+	  /*
+	   * In the case of custom exceptions, it is common to use super to initialize the exception's error message;
+	   *  by passing the message into the base class constructor, 
+	   *  the base class will take care of the work of setting the message up correctly.
+	   */
 	 }  
+	// In java why custom exceptions should also have a constructor with arg as 'Throwable cause'
+	// This allows you to chain the exceptions.
+	public InvalidAgeException(String message, Throwable cause) {
+	    super(message, cause);
+	}
 	 public String toString(){
 		 String s="invalide age .";
 		return s;

@@ -29,6 +29,20 @@ package operator;
 	if expression1 is true expression 2 will be executed otherwise 
          expression3 will be executed
 	ex: (x>y) ? {System.out.println(x)}:{System.out.println(y)};
+	
+	https://stackoverflow.com/questions/2371118/how-do-the-post-increment-i-and-pre-increment-i-operators-work-in-java
+
+	In both cases it first calculates value, but in post-increment it holds old value and after calculating returns it
+	
+	++a
+	
+	a = a + 1;
+	return a;
+	a++
+	
+	temp = a;
+	a = a + 1;
+	return temp;
 
  */
 public class IncrementDecrement {

@@ -17,5 +17,16 @@ public class ObjectCreateDemo {
 			System.out.println(ocd.i);
 
 	}
+	/*
+	 * Can we execute a java program without a main() method?
+	 * Prior to Java 7:
+		Yes, sequence is as follows:
+		jvm loads class
+		executes static blocks
+		looks for main method and invokes it
+	 */
+	/*
+	 * static block , then main method , instance block , constuctor , then user defined method
+	 */
 
 }

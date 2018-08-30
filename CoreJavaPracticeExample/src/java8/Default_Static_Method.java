@@ -1,7 +1,7 @@
 package java8;
 
 interface C {
-	default void m1() {
+	default void m1() { // need of default method as defender method 
 		System.out.println("left");
 	}
 }
@@ -12,7 +12,7 @@ interface D {
 	}
 }
 
-public class Default_Static_Method implements C, D, interfaceA, interfaceB  {
+public class Default_Static_Method implements C, D, InterfaceA, InterfaceB  {
 
 	@Override
 	public void m1() {
@@ -28,12 +28,20 @@ public class Default_Static_Method implements C, D, interfaceA, interfaceB  {
 		//sum(); // illegal
 		// new Lab5().sum(); // illegal
 		// Lab5.sum(); // illegal
-		interfaceA.sum();
+		InterfaceA.sum();
 
 		// interfaceB.sub(); // illegal
 		// Lab5.sub(); // illegal
 		new Lab5().sub();
 	}
+
+	@Override
+	public void fun1() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }
 
@@ -53,7 +61,14 @@ class Lab3 implements left, right { // Ambiguity if not override
 
 	@Override
 	public void m1() {
-		// TODO Auto-generated method stub
+		//java does not allow multiple inheritence as it lead diamond problem;
+		// but allow multiple inheritence but ambiguity problem due to default method
+		// invoking interface left default method to resolve ambiguity problem.
+		// or just provide empty implementation ex.
+//		@Override
+//		public void m1() {
+//			System.out.println("m1() overridden...");
+//		}
 		left.super.m1();
 	}
 }
@@ -92,8 +107,9 @@ class Lab32 implements A1, B1 {
 
 // calling static methods.
 
-interface interfaceA {
-	public static void sum() {
+interface InterfaceA {
+	public static void sum() { // static method act as helper method.as it belong to interface rather than a perticular class.
+		// can not override static method.
 		System.out.println("static method");
 	}
 	
@@ -102,7 +118,9 @@ interface interfaceA {
 	}
 }
 
-interface interfaceB {
+interface InterfaceB {
+	public static final int i =10;
+	public abstract void fun1();
 	public default void sub() {
 		System.out.println("default method");
 	}
@@ -115,17 +133,24 @@ interface interfaceB {
 	}
 }
 
- class Lab5 implements interfaceA, interfaceB {
+ class Lab5 implements InterfaceA, InterfaceB {
 
 	public static void main(String[] args) {
 		// sum(); // illegal
 		// new Lab5().sum(); // illegal
 		// Lab5.sum(); // illegal
-		interfaceA.sum();
+		InterfaceA.sum();
 
-		// interfaceB.sub(); // illegal
+		System.out.println(InterfaceB.i);
+		// InterfaceB.sub(); // illegal
 		// Lab5.sub(); // illegal
 		new Lab5().sub();
+	}
+
+	@Override
+	public void fun1() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

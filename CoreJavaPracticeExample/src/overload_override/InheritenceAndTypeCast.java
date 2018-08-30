@@ -229,3 +229,7 @@ abstract class AdsClass extends F1 {
  * 3. refreence of interface - reference of sub class
  * 4. reference of interface - reference of interface
  */
+/*
+ * same name local variable hide instance variable . to overcome use this.
+ * instance variable with same name in subclass hide super class instance variable with same name . to overcome use super
+ **/
