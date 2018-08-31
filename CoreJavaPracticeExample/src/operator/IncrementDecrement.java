@@ -1,29 +1,53 @@
 package operator;
 /**
  * The incrementation or decrementation will be happened in java from left to right.
- * order of Operator Precedence as Follows.... 
- 
- 	[], (parameters), ex++, ex--
-	++ex, --ex, +e, -e, ~, !
-	new, (type)
-	*, /, %
-	+, -
-	<<, >>, >>>
-	<, >, <=, >=, instanceof
-	==, !=
-	&
-	^
-	|
-	&&
-	||
-	?:
-	=, +=, -=, *=, /=, %=, <<=, >>=, >>>=, &=, ^=, |=
+ * order of Operator Precedence as Follows.... highest precedence appear at the top
+ * 
+ * Operator precedence determines the grouping of terms in an expression. 
+ * This affects how an expression is evaluated. Certain operators have higher precedence than others; 
+ * for example, the multiplication operator has higher precedence than the addition operator −
+	For example, x = 7 + 3 * 2; here x is assigned 13, not 20 because operator * has higher precedence than +,
+	 so it first gets multiplied with 3 * 2 and then adds into 7.
+ * 
+ * For operators, associativity means that when the same operator appears in a row, then which operator occurence we apply first. In the following, let Q be the operator
+ * a Q b Q c
+If Q is left associative, then it evaluates as
 
- * Post increment:: first execute the statment then increase the value by one .
- * Pre increment :: first increase the value by one then execute the statement.
+(a Q b) Q c
+
+ * We know *,/ and % have same precedence, but according to associativity answer may change.
+		For eg: I have exp: 4*8/2%5 so Left associative: (4*8)/2%5 ==> (32/2)%5 ==>16%5 ==>1
+	It's important, since it changes the meaning of an expression. 
+	Consider the division operator with integer arithmetic, which is left associative
+	4 / 2 / 3    <=>    (4 / 2) / 3    <=> 2 / 3     = 0
+	
+	If it were right associative, it would evaluate to an undefined expression, since you would divide by zero
+	4 / 2 / 3    <=>    4 / (2 / 3)    <=> 4 / 0     = undefined
  * 
  * 
- * The ? Operator(Ternary Operator)
+ Category											Associativity 
+ 													
+ 	[], (parameters), ex++, ex-- postfix			Left toright
+	prefix ++ex, --ex, +e, -e, ~, !					Right to left
+	new, (type)										Left toright
+	*, /, %											Left toright
+	+, -											Left toright
+	<<, >>, >>>										Left toright
+	<, >, <=, >=, instanceof						Left toright
+	==, !=											Left toright
+	&												Left toright
+	^												Left toright
+	|												Left toright
+	&&												Left toright
+	||												Left toright
+	?:												Right to left
+	=, +=, -=, *=, /=, %=, <<=, >>=, >>>=, &=, ^=, |=	Right to left
+
+ 
+ left shift a<<b = a*2 tothepower b  = a*Math.pow(2,b)
+ a>>b Math.Floor(a/2 tothe power b)
+  
+  The ? Operator(Ternary Operator)
 	expression1 ? expression2:expression3
 
 	if expression1 is true expression 2 will be executed otherwise 
@@ -33,11 +57,14 @@ package operator;
 	https://stackoverflow.com/questions/2371118/how-do-the-post-increment-i-and-pre-increment-i-operators-work-in-java
 
 	In both cases it first calculates value, but in post-increment it holds old value and after calculating returns it
-	
+	Post increment:: first execute the statment then increase the value by one .
+ Pre increment :: first increase the value by one then execute the statement.
+ 
 	++a
 	
 	a = a + 1;
 	return a;
+	
 	a++
 	
 	temp = a;

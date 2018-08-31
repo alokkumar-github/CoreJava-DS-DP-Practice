@@ -1,5 +1,12 @@
 //package java9;
 ///*
+
+// Constant variables
+//	Abstract methods
+//  Default methods
+//   Static methods
+//  Private methods
+//  Private Static methods
 // * If two default methods needed to share code, a private interface method would allow them to do so,
 // *  but without exposing that private method and all its "implementation details" via the interface.
 // *  

@@ -103,20 +103,63 @@ public class HashMapDemo {
 		System.out.println("After Deleting List ::: "+ls);
 	}
 	public static void main(String str[]) {
-		//hashSetTest();
-		//concurentModificationException();
-	
 		 //hashSetTest();
-		 //hashSetCoustomKey();
-		 //hashMapT();
-		 //hashMapCoustomKey();
-		// treemap();
-		// treemapCustomKey();
-		//terreMapCusomkeyByComparator();
+		 // hashSetCoustomKey();
+		 // hashMapT();
+		// hashMapsortBykey();
+		 // hashMapCoustomKey();
+		// hashMapCoustomKeySortKey();
+		 // treemap();
+		 // treemapCustomKey();
+		// terreMapCusomkeyByComparator();
+		// treeset();
 		//concurentModificationException();
 		//sortByValues();
-		whystringbuffernotoverrideequalhascode();
+		// SortByKey();
+		// whystringbuffernotoverrideequalhascode();
+		weakMapTest();
+		
 	}
+	private static void hashMapsortBykey() {
+		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+		Integer m1 = hm.put("a1", 21);
+		//Integer m2 = hm.put(null, 11); // nullpointerExcption
+		Integer m3 = hm.put("c1", null);
+		Integer m4 = hm.put("b1", 31);
+		Integer m5 = hm.put("a1", 32);
+		sortbykey(hm);
+		
+	}
+
+	private static void hashMapCoustomKeySortKey() {
+		hashMapCoustomKey();
+		
+	}
+	
+	// Function to sort map by Key
+    public static void sortbykey(Map map)
+    {
+        ArrayList<String> sortedKeys =
+                    new ArrayList<String>(map.keySet());
+         
+        Collections.sort(sortedKeys); 
+ 
+        // Display the TreeMap which is naturally sorted
+        for (String x : sortedKeys) 
+            System.out.println("Key = " + x + 
+                        ", Value = " + map.get(x));     
+    }
+
+	private static void treemap() {
+		Map<String,Integer> tm = new TreeMap<>();
+		tm.put("a", 1);
+		tm.put("b", 2);
+		// tm.put(null, null); // nullpointerexceptoin , not allow null as key 
+		tm.put("c", null); // but allow many value as key
+		System.out.println(tm); // key sorted as natual order. red black tree implementation
+		
+	}
+
 	private static void terreMapCusomkeyByComparator() {
 		// Concept 4:By using name comparator (String comparison);
 		TreeMap<Empl, Integer> tm = new TreeMap<Empl, Integer>(new MyNameComp());
@@ -288,7 +331,8 @@ public class HashMapDemo {
 		System.out.println("m1="+m1 + "\t" + "m2="+m2 + "\t" + "m3="+m3 + 
 				"\t" + "m4="+m4 + "\t" + "m5="+m5 + "\t" + "m6="+m6 + "\t" 
 				+ "m7="+m7 + "\t" + "m8="+m8 + "\t"+ "m9="+m9 + "\t"+ "m10="+m10 + "\t");
-		System.out.println(hm);
+		// m1=null	m2=null	m3=11	m4=null	m5=21	m6=32	m7=null	m8=53	m9=51	m10=52	
+		System.out.println(hm); // {a1=50, null=null, b1=31} that mean last value added.(value overide)
 		
 		HashMap newmap = new HashMap();
 	      
@@ -322,7 +366,7 @@ public class HashMapDemo {
 		Map ihm = new IdentityHashMap<>();
 	}
 
-	private void weakMapTest() {
+	private static void weakMapTest() {
 		Map weak = new WeakHashMap();
 
 		Map map = new HashMap();
@@ -335,6 +379,8 @@ public class HashMapDemo {
 			key1 = null;
 		}
 		System.gc();
+		System.out.println("weak:: "+weak);
+		System.out.println("map:: "+map);
 		/*
 		 * Concept 4 :: You can see that there is no entry in weak Map. reason
 		 * is that as we make weakkey as null the corresponsing value is no

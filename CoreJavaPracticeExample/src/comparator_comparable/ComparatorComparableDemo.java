@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
+/*
+ * Comparable provides single sorting sequence ,Comparable affects the original class i.e. actual class is modified.,
+ * java.lang ,We can sort the list elements of Comparable type by Collections.sort(List) method.,
+ * int compareTo(obj)
+ * 
+ *  java.util , We can sort the list elements of Comparator type by Collections.sort(List,Comparator) method., int compare(obj o1,obj o2)
+ */
 public class ComparatorComparableDemo {
 
 	public static void main(String[] args) {
@@ -76,8 +82,8 @@ class Student implements Comparable{
 	}
 
 	//
-	// hashCode is not required here becz we have not doing any think with hashMap or set
-	// here is list to comare
+	// hashCode is not required here becz we are not doing any think with hashMap or set
+	// here is list to compare
 	/*@Override 
 	public boolean equals(Object obj){
 		if(obj instanceof Student){
