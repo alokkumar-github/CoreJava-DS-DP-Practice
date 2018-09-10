@@ -20,6 +20,11 @@ public class PoblemOnString {
 		System.out.println("substring(startIndex,endIndex = chars of startIndex to"
 							+ " endIndex-1::\t"+sSub);
 		System.out.println("length of the substring is {endIndex-beginIndex} \t "+sSub.length());
+		//String s = "ramlakan";
+    	//System.out.println("output::: "+s.substring(3,2));// exception arrayindexoutofbound
+    	System.out.println("output::: "+s.substring(3));
+    	System.out.println("output::: "+s.substring(0,3));
+    	System.out.println("output::: "+s.substring(3,5));// index, count
 		
 	}
 	public static void VariousImpFuntionOfString(){
@@ -50,10 +55,10 @@ public class PoblemOnString {
 		}
 	}
 	public static void main(String[] args) {
-		//noOfOcurrenceAOfString();
-		//understandSubString();
+		noOfOcurrenceAOfString();
+		understandSubString();
 		//VariousImpFuntionOfString();
-		duplicateWordsInString();
+		// duplicateWordsInString();
 	}
 
 }

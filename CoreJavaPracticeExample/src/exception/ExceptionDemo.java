@@ -25,12 +25,18 @@ public class ExceptionDemo {
 		// ed.exp1();
 		 // ed.exp2();
 		// ed.exp3();
-		// ed.exp4();
+		 //ed.exp4();
 		// ed.method(new ArithmeticException());
 		//ed.method(new IOException());
+//		 try {
+//			 ed.exp4();
+//		 }catch(NumberFormatException e) {
+//			 System.out.println("catched here");
+//		 }
+		System.out.println(exp()); // try,catch0,finally,20
 	}
 
-	public int exp() {
+	public static int exp() {
 		/*
 		 * Note: If you don't handle exception, before terminating the program,
 		 * JVM executes finally block(if any).
@@ -163,6 +169,7 @@ terminated
 			String s = "abc"; // s variable is local to try block
 			int i = Integer.parseInt(s);// NumberFormatException // unchecked
 										// Exception
+			System.out.println("skip this statement");
 			b=true;
 			throw new NumberFormatException();
 		} finally {

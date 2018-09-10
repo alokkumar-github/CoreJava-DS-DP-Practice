@@ -71,9 +71,16 @@ class Animal {
 	Animal(){
 		
 	}
+	
 	Animal(int i){
 		this();
 		this.i=i;
+	}
+	public void m2(int i, boolean b, String s) {
+		System.out.println("m2 in Animal class");
+	}
+	public void m2(int i, String s, boolean b) {
+		
 	}
 	 public static void display() {
 	        System.out.println("Static or class method from animal");
@@ -107,6 +114,10 @@ public class OverrideConcept extends Animal{
 	 public static void display() { // here we are re-declaring; not overriding 
 	        System.out.println("Static or class method from OverrideConcept");
 	    }
+	 @Override
+	 public void m2(int i, String s, boolean b) { // order of parameter should be same
+			System.out.println("m2 in Animal class");
+		}
 	 
 	 @Override
 	 public void m1() throws RuntimeException{

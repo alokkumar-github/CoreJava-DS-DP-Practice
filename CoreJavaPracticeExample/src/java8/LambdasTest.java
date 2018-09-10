@@ -36,6 +36,8 @@ import java.util.function.Predicate;
 		The java.util.function package contains many builtin functional interfaces in Java 8.
  * 		java 8 provide support for lambda expressions only with functional interfaces.
  * 
+ * Functional programming uses mathematical functions to solve problems. Functions take an input and give an output, without changing the input:
+f(x) -> some function of x
  * 10. Functional Programming in object oriented language :: Function are at the center of functional programming.
 	 * Function refer to mathematical function(ie. they don't change anything , just simply map input to output ). ex f(x)=x*2;
 		using this function as g(x,y)=f(x)+f(y)

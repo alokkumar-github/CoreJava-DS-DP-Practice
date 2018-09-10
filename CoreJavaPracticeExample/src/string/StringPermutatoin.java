@@ -58,7 +58,7 @@ public class StringPermutatoin {
  * Generate all permutations of string in lexicographically sorted order where repetitions of
  * character is possible in string.
  */
-class StringPermutation {
+class StringPermutation1 {
 
     public List<String> permute(char input[]) {
         Map<Character, Integer> countMap = new TreeMap<>();
@@ -108,9 +108,51 @@ class StringPermutation {
         }
         System.out.println();
     }
+   // https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+    /**
+     * permutation function
+     * @param str string to calculate permutation for
+     * @param l starting index
+     * @param r end index
+     */
+    private void permute(String str, int l, int r)
+    {
+        if (l == r)
+            System.out.println(str);
+        else
+        {
+            for (int i = l; i <= r; i++)
+            {
+                str = swap(str,l,i);
+                System.out.println("str:: "+str);
+                permute(str, l+1, r);
+                str = swap(str,l,i);
+            }
+        }
+    }
+    /**
+     * Swap Characters at position
+     * @param a string value
+     * @param i position 1
+     * @param j position 2
+     * @return swapped string
+     */
+    public String swap(String a, int i, int j)
+    {
+        char temp;
+        char[] charArray = a.toCharArray();
+        temp = charArray[i] ;
+        charArray[i] = charArray[j];
+        charArray[j] = temp;
+        return String.valueOf(charArray);
+    }
 
     public static void main(String args[]) {
-        StringPermutation sp = new StringPermutation();
-        sp.permute("AABC".toCharArray()).forEach(s -> System.out.println(s));
+        StringPermutation1 sp = new StringPermutation1();
+        //sp.permute("AABC".toCharArray()).forEach(s -> System.out.println(s));
+        
+        String str = "ABC";
+        int n = str.length();
+        sp.permute(str, 0, n-1);
     }
 }

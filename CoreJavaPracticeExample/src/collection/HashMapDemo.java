@@ -34,6 +34,7 @@ public class HashMapDemo {
 		System.out.println("sizeNow   4 ::" + hm.size());
 		hm.add(null);
 		System.out.println(hm);
+		System.out.println("sizeNow   5 ::" + hm.size());
 		Iterator<String> itr=hm.iterator();
 		while(itr.hasNext()){
 			String str=(String)itr.next();
@@ -103,21 +104,21 @@ public class HashMapDemo {
 		System.out.println("After Deleting List ::: "+ls);
 	}
 	public static void main(String str[]) {
-		 //hashSetTest();
-		 // hashSetCoustomKey();
+		 // hashSetTest();
+		   hashSetCoustomKey();
 		 // hashMapT();
 		// hashMapsortBykey();
-		 // hashMapCoustomKey();
+		//  hashMapCoustomKey();
 		// hashMapCoustomKeySortKey();
-		 // treemap();
-		 // treemapCustomKey();
+		  treemap();
+		// treemapCustomKey();
 		// terreMapCusomkeyByComparator();
 		// treeset();
 		//concurentModificationException();
 		//sortByValues();
 		// SortByKey();
 		// whystringbuffernotoverrideequalhascode();
-		weakMapTest();
+		// weakMapTest();
 		
 	}
 	private static void hashMapsortBykey() {
@@ -324,7 +325,7 @@ public class HashMapDemo {
 		Integer m5 = hm.put("a1", 32);
 		Integer m6 = hm.put("a1", 51);
 		Integer m7 = hm.put(null, 53);//
-		Integer m8 = hm.put(null, null);//
+		Integer m8 = hm.put("a1", null);//
 		Integer m9 = hm.put("a1", 52);
 		Integer m10 = hm.put("a1", 50);
 		
@@ -332,7 +333,7 @@ public class HashMapDemo {
 				"\t" + "m4="+m4 + "\t" + "m5="+m5 + "\t" + "m6="+m6 + "\t" 
 				+ "m7="+m7 + "\t" + "m8="+m8 + "\t"+ "m9="+m9 + "\t"+ "m10="+m10 + "\t");
 		// m1=null	m2=null	m3=11	m4=null	m5=21	m6=32	m7=null	m8=53	m9=51	m10=52	
-		System.out.println(hm); // {a1=50, null=null, b1=31} that mean last value added.(value overide)
+		System.out.println(hm); // {a1=50, null=53, b1=31} that mean last value added.(value override)
 		
 		HashMap newmap = new HashMap();
 	      
@@ -357,6 +358,8 @@ public class HashMapDemo {
 		map.add(new Employee("b"));
 		map.add(new Employee("c"));
 		map.add(new Employee("a"));
+		map.add(null);
+		map.add(null); // null will be added once
 		// Concept 3 :: Set will add duplicate value . if you don't override
 		// hashcode and equal
 		System.out.println(map);
@@ -375,8 +378,10 @@ public class HashMapDemo {
 			weak.put(weakkey, 3);
 			String key1 = new String("key");
 			map.put(key1, 5);
+			//map.remove(key1);
 			weakkey = null;
 			key1 = null;
+			
 		}
 		System.gc();
 		System.out.println("weak:: "+weak);

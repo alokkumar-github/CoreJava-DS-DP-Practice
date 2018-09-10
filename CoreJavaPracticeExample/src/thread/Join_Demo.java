@@ -14,7 +14,7 @@ public class Join_Demo {
 	public static void main(String[] args) {
 		
 		Thr1 t1=new Thr1();
-		Thr2 t2=new Thr2();
+		//Thr2 t2=new Thr2();
 		Thr3 t3=new Thr3(t1);
 		//t1.start();t2.start();t3.start();
 		

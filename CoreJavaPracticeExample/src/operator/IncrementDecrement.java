@@ -27,8 +27,8 @@ If Q is left associative, then it evaluates as
  * 
  Category											Associativity 
  													
- 	[], (parameters), ex++, ex-- postfix			Left toright
-	prefix ++ex, --ex, +e, -e, ~, !					Right to left
+ 	[], (parameters), ex++, ex-- postfix(Post-Increment)			Left toright
+	prefix Pre-Increment ++ex, --ex, +e, -e, ~, !					Right to left
 	new, (type)										Left toright
 	*, /, %											Left toright
 	+, -											Left toright
@@ -42,7 +42,7 @@ If Q is left associative, then it evaluates as
 	||												Left toright
 	?:												Right to left
 	=, +=, -=, *=, /=, %=, <<=, >>=, >>>=, &=, ^=, |=	Right to left
-
+	
  
  left shift a<<b = a*2 tothepower b  = a*Math.pow(2,b)
  a>>b Math.Floor(a/2 tothe power b)
@@ -70,6 +70,21 @@ If Q is left associative, then it evaluates as
 	temp = a;
 	a = a + 1;
 	return temp;
+	
+	ex::::::::
+	z = ++x * y++
+	evaluated  as:::::::::::::
+	the following sequence of operations is allowed:
+	
+	t0 = y
+	t1 = x + 1
+	z = t1 * t0
+	y = y + 1
+	x = x + 1
+	
+	Interesting facts about Increment and Decrement operators
+	1. an be applied to variables only .not in constant
+	2. Nesting of both ++ and — operators is not allowed ex. int a = 10;   int b = ++(++a);  System.out.println(b);
 
  */
 public class IncrementDecrement {
